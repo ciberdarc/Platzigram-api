@@ -16,7 +16,8 @@
   "ava": {
     "require": [
       "babel-register"
-    ]
+    ],
+    "NODE_ENV": "test"
   },
   "babel": {
     "presets": [
