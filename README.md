@@ -12,4 +12,8 @@
 +-- npm-check-updates@2.10.5
 +-- npm-windows-upgrade@4.0.0
 +-- serve@5.1.4
+<<<<<<< HEAD
 +-- yo@1.8.5
+=======
+`-- yo@1.8.5
+>>>>>>> bd9dda93ac3f2833bc9889c2b79ddf9bbba422e8
