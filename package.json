@@ -1,0 +1,36 @@
+{
+  "name": "platzigram-api",
+  "version": "1.0.0",
+  "description": "Platzigram REST API",
+  "scripts": {
+    "lint": "standard",
+    "test": "npm run lint && ava"
+  },
+  "standard": {
+    "parser": "babel-eslint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ciberdarc/Platzigram-api.git"
+  },
+  "author": "Alexis Araujo <ala1289@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ciberdarc/Platzigram-api/issues"
+  },
+  "homepage": "https://github.com/ciberdarc/Platzigram-api#readme",
+  "devDependencies": {
+    "ava": "^0.19.1",
+    "babel-eslint": "^7.2.2",
+    "babel-preset-es2015": "^6.24.1",
+    "standard": "^10.0.2",
+    "test-listen": "^1.0.2"
+  },
+  "dependencies": {
+    "babel-runtime": "^6.23.0",
+    "micro": "^7.3.2",
+    "request": "^2.81.0",
+    "request-promise": "^4.2.0",
+    "uuid-base62": "^0.1.0"
+  }
+}
