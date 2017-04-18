@@ -2,23 +2,24 @@
 
 import { send } from 'micro'
 import HttpHash from 'http-hash'
-import Db from 'platzigram-db'
-import config from './config'
+// import Db from 'platzigram-db'
+// import config from './config'
 import DbStub from './test/stub/db'
 
-const env = process.env.NODE_ENV || 'production'
-let db = new Db(config.db)
+// const env = process.env.NODE_ENV || 'production'
+// let db = new Db(config.db)
+let db = new DbStub()
 
-if (env === 'test') {
-  db = new DbStub()
-}
+// if (env === 'test') {
+//   db = new DbStub()
+// }
 
 const hash = HttpHash()
 
 hash.set('GET /:id', async function getPicture (req, res, params) {
   let id = params.id
   await db.connect()
-  let image = db.getImage(id)
+  let image = await db.getImage(id)
   await db.disconnect()
   send(res, 200, image)
 })

@@ -2,7 +2,6 @@
 
 import test from 'ava'
 import micro from 'micro'
-
 import listen from 'test-listen'
 import request from 'request-promise'
 import pictures from '../pictures'
@@ -13,7 +12,7 @@ test('GET /:id', async t => {
   let srv = micro(pictures)
   let url = await listen(srv)
 
-  let body = await request({ uri: `${url}/${image.publicId}`, json: true })
+  let body = await request({uri: `${url}/${image.publicId}`, json: true})
   t.deepEqual(body, image)
 })
 
