@@ -33,4 +33,8 @@ export default class Db {
       fixtures.getImage()
     ])
   }
+
+  saveUser (user) {
+    return Promise.resolve(fixtures.getUser())
+  }
 }
