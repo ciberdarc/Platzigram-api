@@ -2,18 +2,18 @@
 
 import { send, json } from 'micro'
 import HttpHash from 'http-hash'
-// import Db from 'platzigram-db'
+import Db from 'platzigram-db'
 import config from './config'
 import utils from './lib/utils'
 import DbStub from './test/stub/db'
 
-// const env = process.env.NODE_ENV || 'production'
-// let db = new Db(config.db)
-let db = new DbStub()
-
-// if (env === 'test') {
-//   db = new DbStub()
-// }
+const env = process.env.NODE_ENV || 'production'
+let db = new Db(config.db)
+// let db = new DbStub()
+//
+if (env === 'test') {
+  db = new DbStub()
+}
 
 const hash = HttpHash()
 
