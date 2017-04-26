@@ -8,7 +8,6 @@ import DbStub from './test/stub/db'
 
 const env = process.env.NODE_ENV || 'production'
 let db = new Db(config.db)
-// let db = new DbStub()
 
 if (env === 'test') {
   db = new DbStub()
@@ -20,10 +19,8 @@ hash.set('POST /', async function saveUser (req, res, params) {
   let user = await json(req)
   await db.connect()
   let created = await db.saveUser(user)
-  await db.disconnect()
-
-  delete created.email
   delete created.password
+  delete created.email
 
   send(res, 201, created)
 })
@@ -32,10 +29,12 @@ hash.set('GET /:username', async function getUser (req, res, params) {
   let username = params.username
   await db.connect()
   let user = await db.getUser(username)
-  await db.disconnect()
 
-  delete user.email
+  let images = await db.getImagesByUser(username)
+  user.pictures = images
+
   delete user.password
+  delete user.email
 
   send(res, 200, user)
 })
